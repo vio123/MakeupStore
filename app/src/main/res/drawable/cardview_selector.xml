@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!-- Definiți aici aspectul dorit pentru starea apăsată -->
+            <solid android:color="@color/colorAccent" /> <!-- Culoarea de fundal când este apăsat -->
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Definiți aici aspectul dorit pentru starea normală -->
+            <solid android:color="@android:color/white" /> <!-- Culoarea de fundal normală -->
+        </shape>
+    </item>
+</selector>

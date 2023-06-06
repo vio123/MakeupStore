@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start_nav"
+    app:startDestination="@id/splashScreenFragment">
+    <fragment
+        android:id="@+id/loginScreenFragment"
+        android:name="com.example.makeupstore.views.LoginScreenFragment"
+        android:label="fragment_login_screen"
+        tools:layout="@layout/fragment_login_screen" >
+        <action
+            android:id="@+id/action_loginScreenFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_loginScreenFragment_to_registerScreenFragment"
+            app:destination="@id/registerScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.makeupstore.views.StartFragment"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_startFragment_to_loginScreenFragment"
+            app:destination="@id/loginScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerScreenFragment"
+        android:name="com.example.makeupstore.views.RegisterScreenFragment"
+        android:label="RegisterScreenFragment" >
+        <action
+            android:id="@+id/action_registerScreenFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.makeupstore.views.SplashScreenFragment"
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginScreenFragment"
+            app:destination="@id/loginScreenFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
