@@ -8,8 +8,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.makeupstore.R
 import com.example.makeupstore.databinding.ProfileProductBinding
 import com.example.makeupstore.models.ProfileProduct
+import com.example.makeupstore.utils.OnItemClickListener
 
-class ProfileProductAdapter(private val data: List<ProfileProduct?>) :
+class ProfileProductAdapter(private val data: List<ProfileProduct?>,private val listener:OnItemClickListener) :
     RecyclerView.Adapter<ProfileProductAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(private val itemBinding: ProfileProductBinding) :
@@ -22,6 +23,13 @@ class ProfileProductAdapter(private val data: List<ProfileProduct?>) :
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(itemBinding.prodImg)
+
+            itemBinding.cardViewProduct.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(position)
+                }
+            }
         }
     }
 

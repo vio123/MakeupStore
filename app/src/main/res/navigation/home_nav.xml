@@ -46,5 +46,9 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.makeupstore.views.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

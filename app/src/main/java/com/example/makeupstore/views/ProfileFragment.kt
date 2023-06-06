@@ -1,12 +1,19 @@
 package com.example.makeupstore.views
 
+import android.os.Bundle
+import android.util.Log
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.makeupstore.R
 import com.example.makeupstore.adapters.ProfileProductAdapter
 import com.example.makeupstore.components.AlertDialog
 import com.example.makeupstore.databinding.FragmentProfileBinding
+import com.example.makeupstore.models.CartProduct
+import com.example.makeupstore.models.FavProduct
+import com.example.makeupstore.utils.OnItemClickListener
+import com.example.makeupstore.utils.ProductUtils
 import com.example.makeupstore.utils.UserUtils
 import com.example.makeupstore.viewmodels.ProfileViewModel
 
@@ -25,10 +32,34 @@ class ProfileFragment :
             binding.user = it
         }
         sharedViewModel.getUserCheckouts(UserUtils.getUserId()).observe(this) {
-            profileProductAdapter = ProfileProductAdapter(it)
-            binding.rvProduct.apply {
-                adapter = profileProductAdapter
-                layoutManager = manager
+            if (it != null) {
+                profileProductAdapter = ProfileProductAdapter(it, object : OnItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        val bundle = Bundle()
+                        bundle.putString(ProductUtils.PROD_NAME, it[position]?.name)
+                        bundle.putString(ProductUtils.PROD_DESCRIPTION, it[position]?.description)
+                        bundle.putString(ProductUtils.PROD_IMAGE, it[position]?.image_link)
+                        bundle.putString(ProductUtils.PROD_PRICE, it[position]?.price)
+                        findNavController().navigate(R.id.action_profileFragment_to_detailsFragment, args = bundle)
+                    }
+
+                    override fun onItemDeleteCart(cartProduct: CartProduct) {
+
+                    }
+
+                    override fun onUpdateQuantity(quantity: Int, prodId: Int) {
+
+                    }
+
+                    override fun onItemDeleteFav(favProduct: FavProduct) {
+
+                    }
+
+                })
+                binding.rvProduct.apply {
+                    adapter = profileProductAdapter
+                    layoutManager = manager
+                }
             }
         }
         binding.btnLogout.setOnClickListener {
