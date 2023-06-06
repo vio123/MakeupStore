@@ -2,6 +2,7 @@ package com.example.makeupstore.views
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -37,6 +38,13 @@ class DetailsFragment :
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .into(binding.productImg)
+        sharedViewModel.viewModelScope.launch {
+            if(sharedViewModel.isFav(data?.getString(ProductUtils.PROD_NAME).toString())){
+                binding.favBtn.setImageDrawable(ContextCompat.getDrawable(binding.root.context,R.drawable.ic_fav))
+            }else{
+                binding.favBtn.setImageDrawable(ContextCompat.getDrawable(binding.root.context,R.drawable.ic_fav_off))
+            }
+        }
         binding.productName.text = data?.getString(ProductUtils.PROD_NAME)
         binding.favBtn.setOnClickListener {
             if (UserUtils.isUserGuest()) {

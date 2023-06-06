@@ -26,6 +26,12 @@ class FavProductAdapter(private var data: List<FavProduct>,private val listener:
             itemBinding.ivFav.setOnClickListener {
                 listener.onItemDeleteFav(item)
             }
+            itemBinding.cardViewProduct.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(position)
+                }
+            }
         }
     }
 
