@@ -19,7 +19,6 @@ abstract class BaseFragment<B: ViewDataBinding> : Fragment(){
         savedInstanceState: Bundle?,
     ): View? {
         binding = DataBindingUtil.inflate(inflater,getLayoutId(),container,false)
-        setHasOptionsMenu(true)
         return binding.root
     }
 
