@@ -11,6 +11,10 @@ interface CartDao {
     @Query("SELECT * FROM cart WHERE idUser = :idUser")
     fun getAllCartForUser(idUser: String): LiveData<List<CartProduct>>
 
+
+    @Query("SELECT SUM(price) AS total FROM cart")
+    suspend fun getTotalPrice(): Double?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(cartProduct: CartProduct): Long
 

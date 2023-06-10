@@ -22,6 +22,5 @@ abstract class BaseFragment<B: ViewDataBinding> : Fragment(){
         return binding.root
     }
 
-
     protected abstract fun getLayoutId():Int
 }

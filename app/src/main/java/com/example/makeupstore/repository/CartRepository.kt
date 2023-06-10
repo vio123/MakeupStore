@@ -16,6 +16,10 @@ class CartRepository(private val cartDao: CartDao) {
         cartDao.delete(cartProduct)
     }
 
+    suspend fun getTotalPrice(): Double? {
+        return cartDao.getTotalPrice()
+    }
+
     suspend fun update(id: Int, quantity: Int): Int {
         return cartDao.updateQuantity(id, quantity)
     }

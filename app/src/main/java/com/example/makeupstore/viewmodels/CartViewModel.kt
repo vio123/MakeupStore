@@ -2,11 +2,12 @@ package com.example.makeupstore.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.makeupstore.database.AppDatabase
 import com.example.makeupstore.models.CartProduct
+import com.example.makeupstore.network.StripeApi
 import com.example.makeupstore.repository.CartRepository
+import com.example.makeupstore.utils.StripeUtils
 import com.example.makeupstore.utils.UserUtils
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -31,6 +32,12 @@ class CartViewModel(app: Application) : BaseViewModel(app) {
         }
     }
 
+    suspend fun getTotalPrice():Double?{
+        return withContext(viewModelScope.coroutineContext){
+            repository.getTotalPrice()
+        }
+    }
+
     suspend fun checkout(): Int {
         allCart.value?.forEach { cartProduct ->
             val myRef = database.getReference("Checkouts").child(UserUtils.getUserId()).push()
@@ -40,6 +47,31 @@ class CartViewModel(app: Application) : BaseViewModel(app) {
             repository.deleteCart(UserUtils.getUserId())
         }
     }
+
+    suspend fun getCustomer(): String {
+        return try {
+            withContext(viewModelScope.coroutineContext) {
+                StripeApi.retrofitService.getCustomer(token = "Bearer ${StripeUtils.PRIVATE_KEY}").customerId.toString()
+            }
+        } catch (e: Exception) {
+            e.toString()
+        }
+    }
+
+    suspend fun getClientSecret(customerId: String, amount: Int): String {
+        return try {
+            withContext(viewModelScope.coroutineContext) {
+                StripeApi.retrofitService.getClientSecret(
+                    token = "Bearer ${StripeUtils.PRIVATE_KEY}",
+                    customerId,
+                    amount = amount
+                ).clientSecret.toString()
+            }
+        } catch (e: Exception) {
+            e.toString()
+        }
+    }
+
 
     suspend fun updateQuantity(quantity: Int, prodId: Int): Int {
         return withContext(viewModelScope.coroutineContext) {
