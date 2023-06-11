@@ -70,14 +70,6 @@ class CartFragment : BaseSharedViewModelFragment<FragmentCartBinding, CartViewMo
         }
         binding.checkOutBtn.setOnClickListener {
             PaymentFlow()
-            /*
-            sharedViewModel.viewModelScope.launch {
-                if (sharedViewModel.checkout() != -1) {
-                    findNavController().navigate(R.id.action_cartFragment_to_homeFragment)
-                }
-            }
-
-             */
         }
         StripeUtils.paymentResult.observe(this){
             if(it == true){

@@ -2,4 +2,34 @@
     <string name="app_name">MakeUpStore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="log_out">Iesire din cont</string>
+    <string name="comenzile_mele">Comenzile mele</string>
+    <string name="add_to_cart">Adauga in cos</string>
+    <string name="search">Cauta</string>
+    <string name="home">Acasa</string>
+    <string name="profile">Profil</string>
+    <string name="settings">Setari</string>
+    <string name="just_for_you">Doar pentru tine</string>
+    <string name="logout_message">Vrei sa iesi din cont?</string>
+    <string name="dialog_positive_btn">Da</string>
+    <string name="dialog_negative_btn">Nu</string>
+    <string name="log_in_to_your_account">Intra in contul tau</string>
+    <string name="email">Email</string>
+    <string name="password">Parola</string>
+    <string name="forgot_password">Ti-ai uitat parola?</string>
+    <string name="log_in">Intra in cont</string>
+    <string name="login_as_guest">Intra ca si guest</string>
+    <string name="create_an_account">Creeaza un cont</string>
+    <string name="loading_text">In curs de logare...</string>
+    <string name="logged_as_guest_title">Nu esti logat</string>
+    <string name="logged_as_guest_message">Doresti sa te loghezi?</string>
+    <string name="my_favorites">Favoritele mele</string>
+    <string name="my_cart">Cosul meu</string>
+    <string name="added_to_cart">Adaugat in cos</string>
+    <string name="checkout">Cumpara</string>
+    <string name="nume">Nume</string>
+    <string name="prenume">Prenume</string>
+    <string name="contact">Contact</string>
+    <string name="adresa">Adresa</string>
+    <string name="register">Inregistreaza-te</string>
 </resources>

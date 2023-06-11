@@ -39,7 +39,7 @@
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorControlNormal"
                 android:text="@{cardProduct.name}"
                 android:textAlignment="center"/>
             <TextView

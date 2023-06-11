@@ -39,10 +39,10 @@ class StartFragment : BaseFragment<FragmentStartBinding>() {
                         context?.let { ctx ->
                             AlertDialog.showAlertDialog(
                                 ctx,
-                                title = "You are not logged",
-                                "Do you want login?",
-                                positiveBtnText = "Yes",
-                                negativeBtnText = "No"
+                                title = getString(R.string.logged_as_guest_title),
+                                getString(R.string.logged_as_guest_message),
+                                positiveBtnText = getString(R.string.dialog_positive_btn),
+                                negativeBtnText = getString(R.string.dialog_negative_btn)
                             ) {
                                 val startNavController =
                                     requireActivity().findNavController(R.id.fragment)
@@ -52,6 +52,10 @@ class StartFragment : BaseFragment<FragmentStartBinding>() {
                     } else {
                         navController.navigate(R.id.profileFragment)
                     }
+                    true
+                }
+                R.id.action_settings -> {
+                    navController.navigate(R.id.settingsFragment)
                     true
                 }
                 else -> false

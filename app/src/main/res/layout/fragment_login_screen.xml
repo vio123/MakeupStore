@@ -28,8 +28,8 @@
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="Log in to your account"
-                android:textColor="@color/black"
+                android:text="@string/log_in_to_your_account"
+                android:textColor="?attr/colorControlNormal"
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:hint="Email"/>
+                    android:hint="@string/email"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -76,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:hint="Password"/>
+                    android:hint="@string/password"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -85,8 +85,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/black"
+                android:text="@string/forgot_password"
+                android:textColor="?attr/colorControlNormal"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +99,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="16dp"
-                android:text="Log In"
+                android:text="@string/log_in"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:textAllCaps="false"
@@ -113,8 +113,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Login as Guest"
-                android:textColor="@color/black"
+                android:text="@string/login_as_guest"
+                android:textColor="?attr/colorControlNormal"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:onClick="@{() -> sharedViewModel.loginAsGuest()}"
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Create an account"
+                android:text="@string/create_an_account"
                 android:textColor="@color/teal_700"
                 android:textSize="20dp"
                 android:textStyle="bold"

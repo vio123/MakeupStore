@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_search"
-        android:title="Search"
+        android:title="@string/search"
         android:icon="@drawable/ic_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView"
         />
     <item
         android:id="@+id/action_fav"
-        android:title="Cart"
+        android:title="Fav"
         android:icon="@drawable/ic_fav"
         app:showAsAction="always"/>
     <item

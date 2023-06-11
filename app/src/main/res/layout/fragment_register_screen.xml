@@ -29,7 +29,7 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:text="Register"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorControlNormal"
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
                     android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nume"/>
+                    android:hint="@string/nume"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -74,7 +74,7 @@
                     android:id="@+id/etPrenume"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Prenume" />
+                    android:hint="@string/prenume" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -94,7 +94,7 @@
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
+                    android:hint="@string/email"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +115,7 @@
                     android:id="@+id/etContact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contact"
+                    android:hint="@string/contact"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,7 +136,7 @@
                     android:id="@+id/etAdresa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Adresa" />
+                    android:hint="@string/adresa" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +156,7 @@
                     android:id="@+id/etParola"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Parola"
+                    android:hint="@string/password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,7 +168,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:onClick="@{() -> sharedViewModel.register()}"
-                android:text="Register"
+                android:text="@string/register"
                 android:textAllCaps="false"
                 android:textSize="20dp"
                 android:textStyle="bold"

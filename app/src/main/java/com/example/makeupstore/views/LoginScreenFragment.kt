@@ -75,7 +75,7 @@ class LoginScreenFragment : BaseSharedViewModelFragment<FragmentLoginScreenBindi
                 binding.etEmail.error = "Invalid email"
             }
             if(it == true){
-                loadingDialog?.initDialog(binding.root.context,"Logging in")
+                loadingDialog?.initDialog(binding.root.context,getString(R.string.loading_text))
             }else{
                 loadingDialog?.dismiss()
             }

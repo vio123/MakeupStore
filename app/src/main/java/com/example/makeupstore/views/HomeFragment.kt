@@ -82,7 +82,7 @@ class HomeFragment :
             }
         }
         sharedViewModel.products.observe(this) {
-            sharedViewModel.categoryText.set("Just For You")
+            sharedViewModel.categoryText.set(getString(R.string.just_for_you))
             cardProductAdapter = CardProductAdapter(it, object : OnItemClickListener {
                 override fun onItemClick(position: Int) {
                     val bundle = Bundle()
@@ -117,7 +117,7 @@ class HomeFragment :
         inflater.inflate(R.menu.toolbar_menu, menu)
         val menuItem: MenuItem = menu.findItem(R.id.action_search)
         val searchView: SearchView? = menuItem.actionView as? SearchView
-        searchView?.queryHint = "Search"
+        searchView?.queryHint = getString(R.string.search)
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -139,10 +139,10 @@ class HomeFragment :
                     context?.let { ctx ->
                         AlertDialog.showAlertDialog(
                             ctx,
-                            title = "You are not logged",
-                            "Do you want login?",
-                            positiveBtnText = "Yes",
-                            negativeBtnText = "No"
+                            title = getString(R.string.logged_as_guest_title),
+                            getString(R.string.logged_as_guest_message),
+                            positiveBtnText = getString(R.string.dialog_positive_btn),
+                            negativeBtnText = getString(R.string.dialog_negative_btn)
                         ) {
                             val startNavController =
                                 requireActivity().findNavController(R.id.fragment)
@@ -158,10 +158,10 @@ class HomeFragment :
                     context?.let { ctx ->
                         AlertDialog.showAlertDialog(
                             ctx,
-                            title = "You are not logged",
-                            "Do you want login?",
-                            positiveBtnText = "Yes",
-                            negativeBtnText = "No"
+                            title = getString(R.string.logged_as_guest_title),
+                            getString(R.string.logged_as_guest_message),
+                            positiveBtnText = getString(R.string.dialog_positive_btn),
+                            negativeBtnText = getString(R.string.dialog_negative_btn)
                         ) {
                             val startNavController =
                                 requireActivity().findNavController(R.id.fragment)

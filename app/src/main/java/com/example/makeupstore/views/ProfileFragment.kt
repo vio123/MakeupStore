@@ -66,10 +66,10 @@ class ProfileFragment :
             context?.let { ctx ->
                 AlertDialog.showAlertDialog(
                     ctx,
-                    title = "Log Out",
-                    "Do you want logout?",
-                    positiveBtnText = "Yes",
-                    negativeBtnText = "No"
+                    title = getString(R.string.log_out),
+                    getString(R.string.logout_message),
+                    positiveBtnText = getString(R.string.dialog_positive_btn),
+                    negativeBtnText = getString(R.string.dialog_negative_btn)
                 ) {
                     UserUtils.logOut()
                     val startNavController =

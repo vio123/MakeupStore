@@ -1,10 +1,13 @@
 package com.example.makeupstore.adapters
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -23,7 +26,8 @@ class CardCategoryAdapter(
 
     inner class MyViewHolder(private val itemBinding: CardCategoryBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        fun bind(item: CardCategory,position: Int) {
+        @SuppressLint("ResourceType")
+        fun bind(item: CardCategory, position: Int) {
             itemBinding.cardCategory = item
             Glide.with(itemBinding.root)
                 .load(item.image)
@@ -36,8 +40,14 @@ class CardCategoryAdapter(
                 selectedPosition = position
                 val recyclerView = itemBinding.root.parent as? RecyclerView
                 val previousCard = recyclerView?.findViewHolderForAdapterPosition(previousPosition)
-                previousCard?.itemView?.findViewById<CardView>(R.id.card)?.setCardBackgroundColor(Color.WHITE)
+                val cardView = previousCard?.itemView?.findViewById<CardView>(R.id.card)
 
+                val typedValue = TypedValue()
+                val resolved = itemBinding.root.context.theme.resolveAttribute(R.attr.colorOnBackground, typedValue, true)
+                if (resolved) {
+                    val colorAttr = ContextCompat.getColor(itemBinding.root.context, typedValue.resourceId)
+                    cardView?.setCardBackgroundColor(colorAttr)
+                }
                 // Set the background color of the current card to cyan
                 itemBinding.card.setCardBackgroundColor(Color.CYAN)
 

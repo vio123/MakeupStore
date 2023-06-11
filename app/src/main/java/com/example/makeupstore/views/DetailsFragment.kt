@@ -51,12 +51,13 @@ class DetailsFragment :
                 context?.let { ctx ->
                     AlertDialog.showAlertDialog(
                         ctx,
-                        title = "You are not logged",
-                        "Do you want login?",
-                        positiveBtnText = "Yes",
-                        negativeBtnText = "No"
+                        title = getString(R.string.logged_as_guest_title),
+                        getString(R.string.logged_as_guest_message),
+                        positiveBtnText = getString(R.string.dialog_positive_btn),
+                        negativeBtnText = getString(R.string.dialog_negative_btn)
                     ) {
-                        val startNavController = requireActivity().findNavController(R.id.fragment)
+                        val startNavController =
+                            requireActivity().findNavController(R.id.fragment)
                         startNavController.navigate(R.id.action_startFragment_to_loginScreenFragment)
                     }
                 }
@@ -82,12 +83,13 @@ class DetailsFragment :
                 context?.let { ctx ->
                     AlertDialog.showAlertDialog(
                         ctx,
-                        title = "You are not logged",
-                        message = "Do you want login?",
-                        positiveBtnText = "Yes",
-                        negativeBtnText = "No"
+                        title = getString(R.string.logged_as_guest_title),
+                        getString(R.string.logged_as_guest_message),
+                        positiveBtnText = getString(R.string.dialog_positive_btn),
+                        negativeBtnText = getString(R.string.dialog_negative_btn)
                     ) {
-                        val startNavController = requireActivity().findNavController(R.id.fragment)
+                        val startNavController =
+                            requireActivity().findNavController(R.id.fragment)
                         startNavController.navigate(R.id.action_startFragment_to_loginScreenFragment)
                     }
                 }
@@ -104,7 +106,7 @@ class DetailsFragment :
                         )
                     )
                     if (insertedId != -1L) {
-                       Snackbar.make(binding.root,"Added to cart",Snackbar.LENGTH_SHORT).show()
+                       Snackbar.make(binding.root,getString(R.string.added_to_cart),Snackbar.LENGTH_SHORT).show()
                     }
                 }
             }
