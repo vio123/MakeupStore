@@ -3,7 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-
+        <variable
+            name="user"
+            type="com.example.makeupstore.models.User" />
+        <variable
+            name="viewModel"
+            type="com.example.makeupstore.viewmodels.SettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,5 +28,100 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:switchPadding="16dp" />
+
+        <EditText
+            android:focusable="false"
+            android:clickable="false"
+            android:id="@+id/etName"
+            android:visibility="@{viewModel.getEditTextVisibility(user.nume)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{user.nume}"
+            android:drawablePadding="8dp"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawableStart="@drawable/ic_person"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/changeTheme" />
+
+        <EditText
+            android:focusable="false"
+            android:clickable="false"
+            android:id="@+id/etPrenume"
+            android:visibility="@{viewModel.getEditTextVisibility(user.prenume)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{user.prenume}"
+            android:drawableStart="@drawable/ic_person"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawablePadding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+        <EditText
+            android:focusable="false"
+            android:clickable="false"
+            android:id="@+id/etEmail"
+            android:text="@{user.email}"
+            android:visibility="@{viewModel.getEditTextVisibility(user.email)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_email"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawablePadding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPrenume" />
+
+        <EditText
+            android:focusable="false"
+            android:clickable="false"
+            android:id="@+id/etPhone"
+            android:text="@{user.contact}"
+            android:visibility="@{viewModel.getEditTextVisibility(user.contact)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawablePadding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+        <EditText
+            android:focusable="false"
+            android:clickable="false"
+            android:id="@+id/etAdresa"
+            android:text="@{user.adresa}"
+            android:visibility="@{viewModel.getEditTextVisibility(user.adresa)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_home"
+            android:drawableEnd="@drawable/ic_edit"
+            android:drawablePadding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
