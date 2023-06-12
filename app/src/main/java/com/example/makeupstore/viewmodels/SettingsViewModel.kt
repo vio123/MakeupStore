@@ -5,14 +5,16 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.makeupstore.models.User
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class SettingsViewModel(app:Application):BaseViewModel(app) {
+class SettingsViewModel(app: Application) : BaseViewModel(app) {
     private val database = Firebase.database
+
 
     fun getUserData(userId: String): LiveData<User?> {
         val userReference = database.getReference("Users").child(userId)
@@ -29,6 +31,7 @@ class SettingsViewModel(app:Application):BaseViewModel(app) {
         })
         return userData
     }
+
     fun getEditTextVisibility(nume: String?): Int {
         return if (nume != null && nume.isNotEmpty()) {
             View.VISIBLE
@@ -36,7 +39,8 @@ class SettingsViewModel(app:Application):BaseViewModel(app) {
             View.GONE
         }
     }
-    fun updatetUserData(user: User?){
+
+    fun updatetUserData(user: User?) {
         val userReference = database.getReference("Users").child(user?.id.toString())
         user?.toMap()?.let {
             userReference.updateChildren(it)

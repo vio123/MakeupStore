@@ -123,5 +123,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPhone" />
 
+        <Button
+            android:id="@+id/btnChangePassword"
+            android:text="@string/change_password"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.getEditTextVisibility(user.adresa)}"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etAdresa" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -8,6 +8,10 @@ object UserUtils {
         return auth.currentUser?.isAnonymous == true
     }
 
+    fun getUserEmail(): String {
+        return auth.currentUser?.email.toString()
+    }
+
     fun getUserId(): String {
         return auth.currentUser?.uid.toString()
     }
@@ -19,7 +23,7 @@ object UserUtils {
         return false
     }
 
-    fun logOut(){
+    fun logOut() {
         auth.signOut()
     }
 }

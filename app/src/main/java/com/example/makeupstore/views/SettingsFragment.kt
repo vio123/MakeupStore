@@ -10,6 +10,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.example.makeupstore.R
 import com.example.makeupstore.databinding.FragmentSettingsBinding
 import com.example.makeupstore.models.User
@@ -251,6 +252,11 @@ class SettingsFragment :
 
             return@setOnTouchListener false
         }
+
+        binding.btnChangePassword.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_changePasswordFragment)
+        }
+
     }
 
 
